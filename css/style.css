@@ -1,0 +1,313 @@
+
+/* ================================
+   Global Styles
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+header {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+
+/* ================================
+   Navigation Bar
+================================ */
+
+nav {
+    background: #0f172a;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 18px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+
+/* ================================
+   Hero Section
+================================ */
+
+.hero {
+    background: #dbeafe;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #172554;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    font-size: 18px;
+}
+
+
+/* ================================
+   Container
+================================ */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+/* ================================
+   Cards
+================================ */
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: #172554;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    margin-bottom: 12px;
+}
+
+
+/* ================================
+   Button
+================================ */
+
+.btn {
+    display: inline-block;
+    background: #1d4ed8;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #172554;
+}
+
+
+/* ================================
+   Statistics Boxes
+================================ */
+
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    flex: 1;
+    min-width: 200px;
+    background: #eff6ff;
+    padding: 25px 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #bfdbfe;
+}
+
+.stat-box h3 {
+    color: #1d4ed8;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.stat-box p {
+    color: #444;
+}
+
+
+/* ================================
+   Cricket Data Table
+================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background: #172554;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+table tr:hover {
+    background: #e0f2fe;
+}
+
+
+/* ================================
+   Footer
+================================ */
+
+footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+/* ================================
+   Responsive Design
+================================ */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px 10px;
+    }
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    table th,
+    table td {
+        padding: 8px;
+    }
+}
+
+
+/* ================================
+   Mobile Design
+================================ */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        min-width: 100%;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
