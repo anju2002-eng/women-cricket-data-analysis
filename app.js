@@ -4,13 +4,12 @@ let players = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     loadPlayerData();
-
-    // Refresh dashboard every 30 seconds
-    setInterval(loadPlayerData, 30000);
 });
 
 async function loadPlayerData() {
     try {
+        console.log("Loading CSV...");
+
         const response = await fetch(csvFile);
 
         if (!response.ok) {
@@ -19,7 +18,12 @@ async function loadPlayerData() {
 
         const csvText = await response.text();
 
+        console.log("CSV loaded successfully");
+        console.log(csvText);
+
         players = parseCSV(csvText);
+
+        console.log("Players:", players);
 
         calculateStatistics(players);
         displayPlayers(players);
@@ -30,8 +34,12 @@ async function loadPlayerData() {
     }
 }
 
+
 function parseCSV(text) {
-    const lines = text.trim().split("\n");
+
+    const lines = text
+        .trim()
+        .split(/\r?\n/);
 
     const headers = lines[0]
         .split(",")
@@ -44,43 +52,66 @@ function parseCSV(text) {
         const player = {};
 
         headers.forEach((header, index) => {
-            player[header] = values[index]
-                ? values[index].trim()
-                : "";
+
+            player[header] =
+                values[index]
+                    ? values[index].trim()
+                    : "";
+
         });
 
         return player;
     });
 }
 
+
 function calculateStatistics(data) {
 
     data.forEach(player => {
 
-        const runs = Number(player.Runs) || 0;
-        const innings = Number(player.Innings) || 0;
-        const notOut = Number(player.NotOut) || 0;
+        const runs =
+            Number(player.Runs) || 0;
 
-        const dismissals = innings - notOut;
+        const innings =
+            Number(player.Innings) || 0;
+
+        const notOut =
+            Number(player.NotOut) || 0;
+
+        const dismissals =
+            innings - notOut;
 
         if (dismissals > 0) {
-            player.Average = (runs / dismissals).toFixed(2);
+
+            player.Average =
+                (runs / dismissals).toFixed(2);
+
         } else {
-            player.Average = runs.toFixed(2);
+
+            player.Average =
+                runs.toFixed(2);
         }
 
-        player.Matches = Number(player.Matches) || 0;
-        player.Wickets = Number(player.Wickets) || 0;
+        player.Matches =
+            Number(player.Matches) || 0;
 
+        player.Wickets =
+            Number(player.Wickets) || 0;
     });
 }
 
+
 function displayPlayers(data) {
 
-    const tableBody = document.getElementById("playerTableBody");
+    const tableBody =
+        document.getElementById("playerTableBody");
 
     if (!tableBody) {
-        console.warn("playerTableBody not found");
+
+        console.error(
+            "playerTableBody not found"
+        );
+
         return;
     }
 
@@ -88,7 +119,8 @@ function displayPlayers(data) {
 
     data.forEach(player => {
 
-        const row = document.createElement("tr");
+        const row =
+            document.createElement("tr");
 
         row.innerHTML = `
             <td>${player.Player}</td>
@@ -104,26 +136,38 @@ function displayPlayers(data) {
     });
 }
 
+
 function displayTeamStatistics(data) {
 
-    const matches = data.reduce(
-        (total, player) => total + (Number(player.Matches) || 0),
-        0
-    );
+    const matchesElement =
+        document.getElementById("totalMatches");
 
-    const runs = data.reduce(
-        (total, player) => total + (Number(player.Runs) || 0),
-        0
-    );
+    const runsElement =
+        document.getElementById("totalRuns");
 
-    const wickets = data.reduce(
-        (total, player) => total + (Number(player.Wickets) || 0),
-        0
-    );
+    const wicketsElement =
+        document.getElementById("totalWickets");
 
-    const matchesElement = document.getElementById("totalMatches");
-    const runsElement = document.getElementById("totalRuns");
-    const wicketsElement = document.getElementById("totalWickets");
+
+    const runs =
+        data.reduce(
+            (total, player) =>
+                total + (Number(player.Runs) || 0),
+            0
+        );
+
+
+    const wickets =
+        data.reduce(
+            (total, player) =>
+                total + (Number(player.Wickets) || 0),
+            0
+        );
+
+
+    const matches =
+        data.length;
+
 
     if (matchesElement) {
         matchesElement.textContent = matches;
