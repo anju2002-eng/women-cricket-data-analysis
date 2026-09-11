@@ -1,7 +1,6 @@
-
-/* ================================
-   Global Styles
-================================ */
+/* =====================================
+   GLOBAL
+===================================== */
 
 * {
     margin: 0;
@@ -15,299 +14,696 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
-    color: #222;
+    background: #f4f7ff;
+    color: #172554;
     line-height: 1.6;
 }
 
 
-/* ================================
-   Header
-================================ */
+/* =====================================
+   HEADER
+===================================== */
 
-header {
-    background: #172554;
+.main-header {
+    background: linear-gradient(135deg, #111c44, #172554, #243b78);
     color: white;
-    text-align: center;
-    padding: 35px 20px;
+
+    padding: 22px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 90px;
 }
 
-header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 
-header p {
-    font-size: 18px;
-}
-
-
-/* ================================
-   Navigation Bar
-================================ */
-
-nav {
-    background: #0f172a;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 18px;
-    font-size: 16px;
+    font-size: 28px;
     font-weight: bold;
 }
 
-nav a:hover {
-    color: #60a5fa;
+.logo i {
+    font-size: 38px;
+}
+
+.logo b {
+    color: #f3a4e7;
+}
+
+.tagline {
+    font-size: 16px;
+    font-style: italic;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tagline i {
+    color: #f3a4e7;
+    font-size: 25px;
 }
 
 
-/* ================================
-   Hero Section
-================================ */
+/* =====================================
+   NAVIGATION
+===================================== */
+
+.navbar {
+    background: #0d1737;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+}
+
+.nav-container a {
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.nav-container a i {
+    margin-right: 7px;
+}
+
+.nav-container a:hover {
+    background: #a855d9;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================
+   HERO
+===================================== */
 
 .hero {
-    background: #dbeafe;
+    min-height: 420px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
+
+    background:
+        radial-gradient(circle at 10% 20%, #ffffff 0%, transparent 30%),
+        linear-gradient(120deg, #f0eaff, #eaf3ff, #fcecff);
+
     padding: 70px 20px;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-.hero h2 {
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #d9b4ff;
+
+    opacity: 0.25;
+
+    right: -100px;
+    top: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+.hero-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #6d5dfc, #c653d8);
+
+    color: white;
+
     font-size: 32px;
-    color: #172554;
+
+    box-shadow: 0 10px 30px rgba(100, 70, 200, 0.3);
+}
+
+.hero h1 {
+    font-size: 48px;
+
     margin-bottom: 15px;
+
+    color: #172554;
 }
 
 .hero p {
-    max-width: 750px;
-    margin: 0 auto 25px;
-    font-size: 18px;
+    font-size: 20px;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #475569;
 }
 
 
-/* ================================
-   Container
-================================ */
+/* =====================================
+   BUTTONS
+===================================== */
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 40px auto;
-}
+.hero-buttons {
+    margin-top: 30px;
 
-
-/* ================================
-   Cards
-================================ */
-
-.card {
-    background: white;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.card h2 {
-    color: #172554;
-    font-size: 26px;
-    margin-bottom: 15px;
-}
-
-.card p {
-    margin-bottom: 12px;
-}
-
-
-/* ================================
-   Button
-================================ */
-
-.btn {
-    display: inline-block;
-    background: #1d4ed8;
-    color: white;
-    text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background: #172554;
-}
-
-
-/* ================================
-   Statistics Boxes
-================================ */
-
-.stats {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+
+    gap: 15px;
+
     flex-wrap: wrap;
 }
 
-.stat-box {
-    flex: 1;
-    min-width: 200px;
-    background: #eff6ff;
-    padding: 25px 15px;
+.btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 13px 24px;
+
     border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #5b5bea, #a64fd0);
+
+    color: white;
+
+    box-shadow: 0 7px 20px rgba(90, 80, 200, 0.25);
+}
+
+.secondary-btn {
+    background: white;
+
+    color: #4f46e5;
+
+    border: 2px solid #b8b5ff;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.container {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 50px auto;
+}
+
+
+/* =====================================
+   CARD
+===================================== */
+
+.card {
+    background: white;
+
+    padding: 35px;
+
+    margin-bottom: 35px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(30, 50, 100, 0.08);
+
+    border: 1px solid #e3e8ff;
+}
+
+
+/* =====================================
+   SECTION TITLE
+===================================== */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.title-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eeeaff;
+
+    color: #6456df;
+
+    font-size: 22px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+
+    color: #172554;
+}
+
+.section-title p {
+    color: #64748b;
+
+    margin: 0;
+}
+
+
+/* =====================================
+   PLAYER CARDS
+===================================== */
+
+.player-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.player-card {
+    background: linear-gradient(145deg, #f7f8ff, #ffffff);
+
+    border: 1px solid #e2e5ff;
+
+    border-radius: 16px;
+
+    padding: 25px 15px;
+
     text-align: center;
-    border: 1px solid #bfdbfe;
+
+    transition: 0.3s;
 }
 
-.stat-box h3 {
-    color: #1d4ed8;
+.player-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 30px rgba(70, 60, 150, 0.15);
+
+    border-color: #b9a9ff;
+}
+
+.player-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #6456df, #c354d6);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-size: 24px;
-    margin-bottom: 8px;
 }
 
-.stat-box p {
-    color: #444;
+.player-card h3 {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+.player-card p {
+    color: #64748b;
+
+    margin-bottom: 12px;
+}
+
+.player-card span {
+    display: inline-block;
+
+    background: #e8eaff;
+
+    color: #4f46b5;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
 }
 
 
-/* ================================
-   Cricket Data Table
-================================ */
+/* =====================================
+   TABLE
+===================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+}
 
 table {
     width: 100%;
+
     border-collapse: collapse;
-    margin-top: 20px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
 }
 
-table th,
-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-}
+thead {
+    background: linear-gradient(135deg, #29346f, #3e4785);
 
-table th {
-    background: #172554;
     color: white;
 }
 
-table tr:nth-child(even) {
-    background: #f8fafc;
+th {
+    padding: 16px;
+
+    text-align: left;
+
+    font-size: 16px;
 }
 
-table tr:hover {
-    background: #e0f2fe;
+td {
+    padding: 16px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #334155;
+}
+
+td i {
+    color: #675be0;
+
+    margin-right: 8px;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f9ff;
+}
+
+tbody tr:hover {
+    background: #eef0ff;
+}
+
+.runs {
+    font-weight: bold;
+
+    color: #5146c9;
 }
 
 
-/* ================================
-   Footer
-================================ */
+/* =====================================
+   STATISTICS
+===================================== */
+
+.statistics-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat-box {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(145deg, #f2f0ff, #f9f5ff);
+
+    border: 1px solid #ddd5ff;
+
+    transition: 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 12px 25px rgba(100, 80, 180, 0.15);
+}
+
+.stat-box i {
+    font-size: 30px;
+
+    color: #6757df;
+
+    margin-bottom: 10px;
+}
+
+.stat-box h3 {
+    font-size: 32px;
+
+    color: #4338ca;
+
+    margin-bottom: 5px;
+}
+
+.stat-box p {
+    color: #64748b;
+
+    margin: 0;
+}
+
+
+/* =====================================
+   ABOUT
+===================================== */
+
+.about-card p {
+    color: #475569;
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
 
 footer {
-    background: #0f172a;
+    background: #111c44;
+
     color: white;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 50px;
+
+    padding: 30px 6%;
+
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+footer h3 {
+    margin-bottom: 8px;
+
+    font-size: 19px;
+}
+
+footer h3 i {
+    margin-right: 8px;
+
+    color: #e68bdc;
 }
 
 footer p {
-    margin: 5px 0;
+    color: #cbd5e1;
+
+    margin: 4px 0;
+}
+
+.footer-right {
+    text-align: right;
 }
 
 
-/* ================================
-   Responsive Design
-================================ */
+/* =====================================
+   RESPONSIVE TABLET
+===================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-    header h1 {
+    .main-header {
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+    }
+
+    .player-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .statistics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+}
+
+
+/* =====================================
+   RESPONSIVE MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo i {
         font-size: 28px;
     }
 
-    header p {
-        font-size: 16px;
+    .tagline {
+        font-size: 13px;
     }
 
-    nav a {
-        display: inline-block;
-        margin: 6px 10px;
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .nav-container a {
+        padding: 8px 10px;
+
+        font-size: 13px;
     }
 
     .hero {
         padding: 50px 15px;
     }
 
-    .hero h2 {
-        font-size: 25px;
+    .hero h1 {
+        font-size: 30px;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 17px;
     }
 
     .container {
-        width: 95%;
+        width: 94%;
     }
 
     .card {
-        padding: 20px;
+        padding: 22px;
     }
 
-    table {
-        font-size: 14px;
+    .player-grid {
+        grid-template-columns: 1fr;
     }
 
-    table th,
-    table td {
-        padding: 8px;
-    }
-}
-
-
-/* ================================
-   Mobile Design
-================================ */
-
-@media (max-width: 480px) {
-
-    header h1 {
-        font-size: 23px;
+    .statistics-grid {
+        grid-template-columns: 1fr;
     }
 
-    nav {
-        padding: 10px;
-    }
-
-    nav a {
-        display: block;
-        margin: 8px;
-    }
-
-    .stats {
+    .footer-content {
         flex-direction: column;
+
+        text-align: center;
     }
 
-    .stat-box {
-        min-width: 100%;
+    .footer-right {
+        text-align: center;
     }
 
-    .hero h2 {
-        font-size: 22px;
-    }
+    th,
+    td {
+        padding: 12px;
 
-    table {
-        display: block;
-        overflow-x: auto;
         white-space: nowrap;
     }
 }
-
