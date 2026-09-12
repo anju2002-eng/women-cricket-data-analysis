@@ -36,6 +36,7 @@ async function loadPlayers() {
 
 
 function displayPlayers(playerList) {
+function displayPlayers(playerList) {
 
     const grid = document.getElementById("playersGrid");
 
@@ -80,42 +81,60 @@ function displayPlayers(playerList) {
 
         const initials = getInitials(playerName);
 
+
         const card = document.createElement("div");
 
         card.className = "player-card";
 
         card.innerHTML = `
             <div class="player-card-image">
+
                 <div class="player-initials">
                     ${initials}
                 </div>
+
+                <span class="player-country">
+                    🇮🇳 India
+                </span>
+
             </div>
 
             <div class="player-card-body">
 
-                <span class="player-team">
-                    🇮🇳 ${team}
+                <span class="player-role">
+                    ${role}
                 </span>
 
-                <h3>${playerName}</h3>
-
-                <p class="player-role">
-                    ${role}
-                </p>
+                <h3>
+                    ${playerName}
+                </h3>
 
                 <p class="player-style">
                     ${battingStyle}
                 </p>
 
-                <a href="${profileURL}" class="profile-btn">
-                    View Profile →
-                </a>
+                <div class="player-card-footer">
+
+                    <span class="player-team">
+                        ${team}
+                    </span>
+
+                    <a
+                        href="${profileURL}"
+                        class="profile-btn"
+                    >
+                        View Profile →
+                    </a>
+
+                </div>
 
             </div>
         `;
 
         grid.appendChild(card);
+
     });
+}
 
     updatePlayerCount(playerList.length);
 }
