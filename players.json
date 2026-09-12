@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Smriti Mandhana",
+    "team": "India Women",
+    "role": "Opening Batter",
+    "battingStyle": "Left Hand Bat"
+  },
+  {
+    "name": "Harmanpreet Kaur",
+    "team": "India Women",
+    "role": "Middle Order Batter",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Shafali Verma",
+    "team": "India Women",
+    "role": "Opening Batter",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Jemimah Rodrigues",
+    "team": "India Women",
+    "role": "Batter",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Richa Ghosh",
+    "team": "India Women",
+    "role": "Wicketkeeper Batter",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Deepti Sharma",
+    "team": "India Women",
+    "role": "All Rounder",
+    "battingStyle": "Left Hand Bat"
+  },
+  {
+    "name": "Renuka Thakur",
+    "team": "India Women",
+    "role": "Bowler",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Radha Yadav",
+    "team": "India Women",
+    "role": "Bowler",
+    "battingStyle": "Left Hand Bat"
+  },
+  {
+    "name": "Shreyanka Patil",
+    "team": "India Women",
+    "role": "All Rounder",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Sree Charani",
+    "team": "India Women",
+    "role": "Bowler",
+    "battingStyle": "Left Hand Bat"
+  },
+  {
+    "name": "Arundhati Reddy",
+    "team": "India Women",
+    "role": "All Rounder",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Kranti Gaud",
+    "team": "India Women",
+    "role": "Bowler",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "G. Kamalini",
+    "team": "India Women",
+    "role": "Wicketkeeper Batter",
+    "battingStyle": "Left Hand Bat"
+  },
+  {
+    "name": "Bharti Fulmali",
+    "team": "India Women",
+    "role": "Batter",
+    "battingStyle": "Right Hand Bat"
+  },
+  {
+    "name": "Nandni Sharma",
+    "team": "India Women",
+    "role": "All Rounder",
+    "battingStyle": "Right Hand Bat"
+  }
+]

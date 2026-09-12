@@ -1,279 +1,214 @@
-const csvFile = "women_cricket_data.csv";
-
 let players = [];
 
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    loadPlayerData();
-
+    loadPlayers();
 });
 
-
-async function loadPlayerData() {
-
+async function loadPlayers() {
     try {
-
-        const response = await fetch(csvFile);
+        const response = await fetch("players.json");
 
         if (!response.ok) {
-
-            throw new Error("CSV file not found");
-
+            throw new Error("Unable to load players.json");
         }
 
-        const csvText = await response.text();
-
-        players = parseCSV(csvText);
-
-        calculateStatistics(players);
+        players = await response.json();
 
         displayPlayers(players);
+        setupSearch();
+        setupRoleFilter();
 
-        displayStatistics(players);
+    } catch (error) {
+        console.error("Player loading error:", error);
 
-        displayTopPerformer(players);
+        const grid = document.getElementById("playersGrid");
 
+        if (grid) {
+            grid.innerHTML = `
+                <div class="empty-state">
+                    <h3>Unable to load players</h3>
+                    <p>Please make sure players.json is available.</p>
+                </div>
+            `;
+        }
+    }
+}
+
+
+function displayPlayers(playerList) {
+
+    const grid = document.getElementById("playersGrid");
+
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    if (playerList.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <h3>No players found</h3>
+                <p>Try another search or role.</p>
+            </div>
+        `;
+        return;
     }
 
-    catch (error) {
+    playerList.forEach(player => {
 
-        console.error(
-            "Data loading error:",
-            error
-        );
+        const playerName =
+            player.name ||
+            player.Player ||
+            "Unknown Player";
 
-    }
+        const team =
+            player.team ||
+            player.Team ||
+            "India Women";
 
-}
+        const role =
+            player.role ||
+            player.Role ||
+            "Cricketer";
 
+        const battingStyle =
+            player.battingStyle ||
+            player.BattingStyle ||
+            "Not Available";
 
+        const profileURL =
+            `player.html?name=${encodeURIComponent(playerName)}`;
 
-function parseCSV(text) {
+        const initials = getInitials(playerName);
 
-    const lines =
-        text.trim().split(/\r?\n/);
+        const card = document.createElement("div");
 
-    const headers =
-        lines[0]
-        .split(",")
-        .map(h => h.trim());
+        card.className = "player-card";
 
+        card.innerHTML = `
+            <div class="player-card-image">
+                <div class="player-initials">
+                    ${initials}
+                </div>
+            </div>
 
-    return lines.slice(1).map(line => {
+            <div class="player-card-body">
 
-        const values = line.split(",");
+                <span class="player-team">
+                    🇮🇳 ${team}
+                </span>
 
-        const player = {};
+                <h3>${playerName}</h3>
 
-        headers.forEach(
-            (header, index) => {
+                <p class="player-role">
+                    ${role}
+                </p>
 
-                player[header] =
-                    values[index]
-                    ? values[index].trim()
-                    : "";
+                <p class="player-style">
+                    ${battingStyle}
+                </p>
 
-            }
-        );
+                <a href="${profileURL}" class="profile-btn">
+                    View Profile →
+                </a>
 
-        return player;
-
-    });
-
-}
-
-
-
-function calculateStatistics(data) {
-
-    data.forEach(player => {
-
-        const runs =
-            Number(player.Runs) || 0;
-
-        const innings =
-            Number(player.Innings) || 0;
-
-        const notOut =
-            Number(player.NotOut) || 0;
-
-        const dismissals =
-            innings - notOut;
-
-
-        if (dismissals > 0) {
-
-            player.Average =
-                (runs / dismissals)
-                .toFixed(2);
-
-        }
-        else {
-
-            player.Average =
-                runs.toFixed(2);
-
-        }
-
-
-        player.Matches =
-            Number(player.Matches) || 0;
-
-        player.Wickets =
-            Number(player.Wickets) || 0;
-
-    });
-
-}
-
-
-
-function displayPlayers(data) {
-
-    const tableBody =
-        document.getElementById(
-            "playerTableBody"
-        );
-
-
-    if (!tableBody) return;
-
-
-    tableBody.innerHTML = "";
-
-
-    data.forEach(player => {
-
-        const row =
-            document.createElement("tr");
-
-
-        row.innerHTML = `
-
-            <td>${player.Player}</td>
-
-            <td>${player.Format}</td>
-
-            <td>${player.Matches}</td>
-
-            <td>${player.Runs}</td>
-
-            <td>${player.Wickets}</td>
-
-            <td>${player.Average}</td>
-
-            <td>${player.StrikeRate}</td>
-
+            </div>
         `;
 
-
-        tableBody.appendChild(row);
-
+        grid.appendChild(card);
     });
 
+    updatePlayerCount(playerList.length);
 }
 
 
+function getInitials(name) {
 
-function displayStatistics(data) {
-
-    const totalPlayers =
-        data.length;
-
-
-    const totalRuns =
-        data.reduce(
-            (total, player) =>
-                total +
-                (Number(player.Runs) || 0),
-            0
-        );
-
-
-    const totalWickets =
-        data.reduce(
-            (total, player) =>
-                total +
-                (Number(player.Wickets) || 0),
-            0
-        );
-
-
-    document.getElementById(
-        "totalMatches"
-    ).textContent = totalPlayers;
-
-
-    document.getElementById(
-        "totalRuns"
-    ).textContent = totalRuns;
-
-
-    document.getElementById(
-        "totalWickets"
-    ).textContent = totalWickets;
-
+    return name
+        .split(" ")
+        .map(word => word[0])
+        .join("")
+        .substring(0, 2)
+        .toUpperCase();
 }
 
 
+function updatePlayerCount(count) {
 
-function displayTopPerformer(data) {
+    const element =
+        document.getElementById("playerCount");
 
-    if (data.length === 0) return;
-
-
-    const sorted =
-        [...data].sort(
-            (a, b) =>
-                (Number(b.Runs) || 0) -
-                (Number(a.Runs) || 0)
-        );
-
-
-    const top =
-        sorted[0];
-
-
-    document.getElementById(
-        "topPlayer"
-    ).textContent =
-        top.Player.split(" ")[0];
-
-
-    document.getElementById(
-        "performerName"
-    ).textContent =
-        top.Player;
-
-
-    document.getElementById(
-        "performerRuns"
-    ).textContent =
-        top.Runs;
-
-
-    document.getElementById(
-        "performerAverage"
-    ).textContent =
-        top.Average;
-
-
-    document.getElementById(
-        "performerSR"
-    ).textContent =
-        top.StrikeRate;
-
+    if (element) {
+        element.textContent = count;
+    }
 }
 
 
+function setupSearch() {
 
-function scrollToPlayers() {
+    const searchInput =
+        document.getElementById("playerSearch");
 
-    document.getElementById(
-        "players"
-    ).scrollIntoView({
-        behavior: "smooth"
-    });
+    if (!searchInput) return;
 
+    searchInput.addEventListener("input", filterPlayers);
+}
+
+
+function setupRoleFilter() {
+
+    const roleFilter =
+        document.getElementById("roleFilter");
+
+    if (!roleFilter) return;
+
+    roleFilter.addEventListener("change", filterPlayers);
+}
+
+
+function filterPlayers() {
+
+    const searchInput =
+        document.getElementById("playerSearch");
+
+    const roleFilter =
+        document.getElementById("roleFilter");
+
+    const searchText =
+        searchInput
+            ? searchInput.value.toLowerCase()
+            : "";
+
+    const selectedRole =
+        roleFilter
+            ? roleFilter.value.toLowerCase()
+            : "all";
+
+    const filteredPlayers =
+        players.filter(player => {
+
+            const name =
+                (
+                    player.name ||
+                    player.Player ||
+                    ""
+                ).toLowerCase();
+
+            const role =
+                (
+                    player.role ||
+                    player.Role ||
+                    ""
+                ).toLowerCase();
+
+            const matchesSearch =
+                name.includes(searchText);
+
+            const matchesRole =
+                selectedRole === "all" ||
+                role.includes(selectedRole);
+
+            return matchesSearch && matchesRole;
+        });
+
+    displayPlayers(filteredPlayers);
 }
