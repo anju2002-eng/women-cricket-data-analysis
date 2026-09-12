@@ -90,3 +90,70 @@
     "battingStyle": "Right Hand Bat"
   }
 ]
+
+{
+    "name": "Smriti Mandhana",
+    "team": "India Women",
+    "role": "Opening Batter",
+    "battingStyle": "Left Hand Bat",
+    "photo": "players/smriti-mandhana.jpg"
+}
+
+{
+    "name": "Harmanpreet Kaur",
+    "team": "India Women",
+    "role": "Middle Order Batter",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/harmanpreet-kaur.jpg"
+}
+
+{
+    "name": "Shafali Verma",
+    "team": "India Women",
+    "role": "Opening Batter",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/shafali-verma.jpg"
+}
+{
+    "name": "Jemimah Rodrigues",
+    "team": "India Women",
+    "role": "Middle Order Batter",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/jemimah-rodrigues.jpg"
+}
+{
+    "name": "Richa Ghosh",
+    "team": "India Women",
+    "role": "Wicketkeeper Batter",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/richa-ghosh.jpg"
+}
+{
+    "name": "Deepti Sharma",
+    "team": "India Women",
+    "role": " all rounder",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/deepti-sharma.jpg"
+}
+{
+    "name": "Renuka Thakur",
+    "team": "India Women",
+    "role": "bowler",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/renuka-thakur.jpg"
+}
+{
+    "name": "Radha Yadav",
+    "team": "India Women",
+    "role": "Bowler",
+    "battingStyle": "Left Hand Bat",
+    "photo": "players/radha-yadav.jpg"
+}
+
+{
+    "name": "Shreyanka Patil",
+    "team": "India Women",
+    "role": "Bowler",
+    "battingStyle": "Right Hand Bat",
+    "photo": "players/shreyanka-patil.jpg"
+}

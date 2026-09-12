@@ -87,17 +87,33 @@ function displayPlayers(playerList) {
         card.className = "player-card";
 
         card.innerHTML = `
-            <div class="player-card-image">
+           <div class="player-card-image">
 
-                <div class="player-initials">
-                    ${initials}
-                </div>
+    ${
+        player.photo
+        ? `
+            <img
+                src="${player.photo}"
+                alt="${playerName}"
+                class="player-photo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+          `
+        : ""
+    }
 
-                <span class="player-country">
-                    🇮🇳 India
-                </span>
+    <div
+        class="player-initials"
+        style="${player.photo ? 'display:none;' : 'display:flex;'}"
+    >
+        ${initials}
+    </div>
 
-            </div>
+    <span class="player-country">
+        🇮🇳 India
+    </span>
+
+</div>
 
             <div class="player-card-body">
 

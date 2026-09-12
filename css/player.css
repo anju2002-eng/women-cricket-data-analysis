@@ -1564,92 +1564,336 @@ color: transparent;
 
 }
 
+
+
 /* =========================================
-   PROFESSIONAL PLAYER CARDS
-========================================= */
+   INDIA WOMEN CRICKET - PLAYER PAGE
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, #25145c 0%, transparent 35%),
+        radial-gradient(circle at top right, #102d68 0%, transparent 30%),
+        #070b1c;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   TOP NAVBAR
+   ========================================= */
+
+.topbar {
+    width: 100%;
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 12, 32, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #b9bfd5;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.players-hero {
+    padding: 75px 6% 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(87, 46, 180, 0.45),
+            rgba(20, 48, 105, 0.25)
+        );
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+    margin-bottom: 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: #d9d3ff;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    font-size: clamp(34px, 5vw, 58px);
+    margin-bottom: 16px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #b9a7ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero-content p {
+    color: #aeb5ce;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SEARCH + FILTER
+   ========================================= */
+
+.player-tools {
+    width: 88%;
+    max-width: 1250px;
+
+    margin: 35px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 220px 130px;
+
+    gap: 18px;
+    align-items: center;
+}
+
+.search-box input,
+.filter-box select {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.search-box input::placeholder {
+    color: #858da8;
+}
+
+.search-box input:focus,
+.filter-box select:focus {
+    border-color: #8b6cff;
+
+    box-shadow:
+        0 0 0 3px rgba(139, 108, 255, 0.12);
+}
+
+.filter-box select option {
+    background: #11162d;
+    color: white;
+}
+
+.player-count {
+    text-align: center;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.player-count strong {
+    display: block;
+
+    font-size: 24px;
+
+    color: #ffffff;
+}
+
+.player-count span {
+    color: #8992ae;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   PLAYER GRID
+   ========================================= */
 
 .players-grid {
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto 80px;
+    width: 88%;
+    max-width: 1250px;
+
+    margin: 30px auto 70px;
 
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
+        repeat(auto-fill, minmax(280px, 1fr));
 
-    gap: 25px;
+    gap: 24px;
 }
 
 
-/* PLAYER CARD */
+/* =========================================
+   PLAYER CARD
+   ========================================= */
 
 .player-card {
     position: relative;
 
+    overflow: hidden;
+
+    min-height: 365px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 22px;
+
     background:
         linear-gradient(
             145deg,
-            #171b35,
-            #0d1024
+            rgba(34, 39, 75, 0.95),
+            rgba(13, 17, 39, 0.98)
         );
 
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-
-/* HOVER */
-
-.player-card:hover {
-
-    transform: translateY(-8px);
-
-    border-color:
-        rgba(120, 90, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.09);
 
     box-shadow:
-        0 20px 45px
-        rgba(0,0,0,0.35);
+        0 15px 40px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
 
-/* PLAYER IMAGE AREA */
+/* Top glow */
+
+.player-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -90px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(121, 91, 255, 0.20);
+
+    filter: blur(30px);
+
+    pointer-events: none;
+}
+
+
+/* Hover effect */
+
+.player-card:hover {
+    transform: translateY(-9px);
+
+    border-color: rgba(139, 108, 255, 0.55);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.42),
+        0 0 35px rgba(106, 76, 220, 0.12);
+}
+
+
+/* =========================================
+   PLAYER CARD IMAGE AREA
+   ========================================= */
 
 .player-card-image {
-
-    height: 190px;
+    height: 175px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     position: relative;
 
     background:
-        radial-gradient(
-            circle at center,
-            #343b72 0%,
-            #171b35 55%,
-            #0d1024 100%
+        linear-gradient(
+            135deg,
+            #26165f,
+            #172d62
         );
 }
 
 
-/* INITIALS */
+/* Player initials */
 
 .player-initials {
-
     width: 105px;
     height: 105px;
 
@@ -1660,71 +1904,76 @@ color: transparent;
     align-items: center;
     justify-content: center;
 
-    font-size: 34px;
-
+    font-size: 32px;
     font-weight: 800;
-
-    color: white;
 
     background:
         linear-gradient(
             135deg,
-            #6d5dfc,
-            #9b5cff
+            #7b5cff,
+            #3b73e8
         );
 
-    border: 5px solid
-        rgba(255,255,255,0.12);
+    color: #ffffff;
+
+    border: 4px solid rgba(255, 255, 255, 0.18);
 
     box-shadow:
-        0 10px 30px
-        rgba(0,0,0,0.35);
+        0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 
-/* COUNTRY BADGE */
+/* India badge */
 
 .player-country {
-
     position: absolute;
 
-    top: 15px;
-    right: 15px;
+    top: 14px;
+    right: 14px;
 
-    padding: 6px 10px;
+    padding: 7px 11px;
 
     border-radius: 20px;
 
-    font-size: 12px;
+    background: rgba(5, 8, 24, 0.72);
 
-    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
-    background:
-        rgba(0,0,0,0.35);
+    font-size: 11px;
 
-    backdrop-filter: blur(10px);
+    font-weight: 700;
 
-    color: white;
+    color: #ffffff;
 }
 
 
-/* CARD BODY */
+/* =========================================
+   CARD BODY
+   ========================================= */
 
 .player-card-body {
-
     padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
 }
 
-
-/* ROLE */
-
 .player-role {
-
     display: inline-block;
 
-    padding: 6px 10px;
+    width: fit-content;
+
+    padding: 6px 11px;
+
+    margin-bottom: 12px;
 
     border-radius: 20px;
+
+    background: rgba(123, 92, 255, 0.12);
+
+    color: #b9a8ff;
 
     font-size: 11px;
 
@@ -1733,45 +1982,36 @@ color: transparent;
     text-transform: uppercase;
 
     letter-spacing: 0.5px;
-
-    background:
-        rgba(109,93,252,0.15);
-
-    color:
-        #b7afff;
 }
 
+.player-card h3 {
+    font-size: 23px;
 
-/* PLAYER NAME */
+    margin-bottom: 8px;
 
-.player-card-body h3 {
-
-    margin: 14px 0 6px;
-
-    font-size: 22px;
-
-    color: white;
-
-    font-weight: 700;
+    color: #ffffff;
 }
-
-
-/* BATTING STYLE */
 
 .player-style {
-
-    margin: 0;
-
-    color:
-        rgba(255,255,255,0.6);
+    color: #9099b6;
 
     font-size: 14px;
+
+    margin-bottom: 20px;
 }
 
 
-/* FOOTER */
+/* =========================================
+   CARD FOOTER
+   ========================================= */
 
 .player-card-footer {
+    margin-top: auto;
+
+    padding-top: 17px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
 
     display: flex;
 
@@ -1779,91 +2019,199 @@ color: transparent;
 
     justify-content: space-between;
 
-    gap: 10px;
-
-    margin-top: 22px;
-
-    padding-top: 16px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.08);
+    gap: 12px;
 }
-
-
-/* TEAM */
 
 .player-team {
-
-    color:
-        rgba(255,255,255,0.65);
+    color: #9ca5c0;
 
     font-size: 12px;
+
+    font-weight: 600;
 }
 
-
-/* PROFILE BUTTON */
-
 .profile-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 14px;
+
+    border-radius: 9px;
 
     text-decoration: none;
 
-    color: white;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    padding: 9px 13px;
-
-    border-radius: 10px;
+    color: #ffffff;
 
     background:
         linear-gradient(
             135deg,
-            #6d5dfc,
-            #8b5cf6
+            #7657f6,
+            #3d72e8
         );
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
 }
 
-
 .profile-btn:hover {
-
     transform: translateX(3px);
 
     box-shadow:
-        0 8px 20px
-        rgba(109,93,252,0.35);
+        0 8px 20px rgba(88, 76, 210, 0.35);
 }
 
 
-/* MOBILE */
+/* =========================================
+   EMPTY STATE
+   ========================================= */
 
-@media (max-width: 600px) {
+.empty-state {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+
+    font-size: 22px;
+}
+
+.empty-state p {
+    color: #8992ae;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background: rgba(5, 8, 22, 0.8);
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    color: #737c99;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .topbar {
+        padding: 16px 4%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .player-tools {
+        grid-template-columns: 1fr 180px;
+    }
+
+    .player-count {
+        grid-column: 1 / -1;
+        max-width: 180px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .topbar {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .players-hero {
+        padding: 55px 5% 40px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .player-tools {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .player-count {
+        grid-column: auto;
+
+        max-width: none;
+    }
 
     .players-grid {
+        width: 90%;
 
-        width: 92%;
+        grid-template-columns: 1fr;
 
-        grid-template-columns:
-            1fr;
-
+        gap: 18px;
     }
 
-    .player-card-image {
-
-        height: 170px;
-
+    .player-card {
+        min-height: 350px;
     }
 
-    .player-card-body h3 {
+    .player-card-footer {
+        flex-direction: column;
 
-        font-size: 20px;
-
+        align-items: stretch;
     }
 
+    .profile-btn {
+        width: 100%;
+    }
+}
+.player-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
 }
