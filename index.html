@@ -1,55 +1,445 @@
-<section id="players" class="players-section">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>India Women Cricket Analytics</title>
+
     <link rel="stylesheet" href="css/style.css">
+</head>
 
-    <div class="section-title">
-        <span>🇮🇳</span>
-        <h2>India Women Players</h2>
-        <p>Player performance statistics</p>
-    </div>
+<body>
 
-    <div class="table-container">
+    <!-- SIDEBAR -->
 
-        <table class="player-table">
+    <aside class="sidebar">
 
-            <thead>
-                <tr>
-                    <th>Player</th>
-                    <th>Format</th>
-                    <th>Matches</th>
-                    <th>Runs</th>
-                    <th>Wickets</th>
-                    <th>Average</th>
-                    <th>Strike Rate</th>
-                </tr>
-            </thead>
+        <div class="logo">
+            <div class="logo-icon">🏏</div>
 
-            <tbody id="playerTableBody">
-                <!-- JavaScript data will appear here -->
-            </tbody>
+            <div>
+                <h2>WCA</h2>
+                <span>Cricket Analytics</span>
+            </div>
+        </div>
 
-        </table>
 
-    </div>
+        <nav>
 
-</section>
-<section class="statistics-section">
+            <a href="#" class="nav-item active">
+                <span>▣</span>
+                Dashboard
+            </a>
 
-    <div class="stat-card">
-        <div class="stat-icon">🏏</div>
-        <h3 id="totalMatches">0</h3>
-        <p>Matches</p>
-    </div>
+            <a href="#players" class="nav-item">
+                <span>♟</span>
+                Players
+            </a>
 
-    <div class="stat-card">
-        <div class="stat-icon">📊</div>
-        <h3 id="totalRuns">0</h3>
-        <p>Runs</p>
-    </div>
+            <a href="#matches" class="nav-item">
+                <span>🏏</span>
+                Matches
+            </a>
 
-    <div class="stat-card">
-        <div class="stat-icon">🎯</div>
-        <h3 id="totalWickets">0</h3>
-        <p>Wickets</p>
-    </div>
+            <a href="#statistics" class="nav-item">
+                <span>◈</span>
+                Statistics
+            </a>
 
-</section>
+            <a href="#live" class="nav-item">
+                <span class="live-dot"></span>
+                Live Data
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="india-box">
+                <span>🇮🇳</span>
+
+                <div>
+                    <strong>India Women</strong>
+                    <small>National Team</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="small-title">CRICKET PERFORMANCE SYSTEM</p>
+
+                <h1>
+                    India Women
+                    <span>Analytics</span>
+                </h1>
+            </div>
+
+
+            <div class="live-status">
+
+                <span class="pulse"></span>
+
+                LIVE SYSTEM
+
+            </div>
+
+        </header>
+
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    🇮🇳 INDIA WOMEN CRICKET
+                </div>
+
+                <h2>
+                    Performance
+                    <br>
+                    <span>Intelligence Dashboard</span>
+                </h2>
+
+                <p>
+                    Track player performance, batting statistics,
+                    bowling records and match data in one place.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button onclick="scrollToPlayers()">
+                        View Players →
+                    </button>
+
+                    <button class="secondary-btn">
+                        Live Matches
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-graphic">
+
+                <div class="circle circle-one"></div>
+                <div class="circle circle-two"></div>
+
+                <div class="cricket-ball">
+                    🏏
+                </div>
+
+                <div class="floating-card card-one">
+                    <strong>450</strong>
+                    <span>Top Runs</span>
+                </div>
+
+                <div class="floating-card card-two">
+                    <strong>96.0</strong>
+                    <span>Strike Rate</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STATISTICS -->
+
+        <section class="statistics-section" id="statistics">
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon blue">
+                    🏏
+                </div>
+
+                <div>
+                    <p>Total Players</p>
+                    <h3 id="totalMatches">0</h3>
+                    <span class="card-info">Active records</span>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon green">
+                    📊
+                </div>
+
+                <div>
+                    <p>Total Runs</p>
+                    <h3 id="totalRuns">0</h3>
+                    <span class="card-info">Batting performance</span>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon orange">
+                    🎯
+                </div>
+
+                <div>
+                    <p>Total Wickets</p>
+                    <h3 id="totalWickets">0</h3>
+                    <span class="card-info">Bowling performance</span>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon purple">
+                    ⭐
+                </div>
+
+                <div>
+                    <p>Top Performer</p>
+                    <h3 id="topPlayer">-</h3>
+                    <span class="card-info">Based on runs</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TOP PERFORMER -->
+
+        <section class="top-performer">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>PLAYER SPOTLIGHT</p>
+                    <h2>Top Performer</h2>
+                </div>
+
+                <span class="rank">#01</span>
+
+            </div>
+
+
+            <div class="performer-content">
+
+                <div class="player-avatar">
+                    SM
+                </div>
+
+
+                <div class="performer-info">
+
+                    <span class="performer-role">
+                        INDIA WOMEN • BATTER
+                    </span>
+
+                    <h2 id="performerName">
+                        Smriti Mandhana
+                    </h2>
+
+                    <p>
+                        Leading batting performance
+                        in the current dataset.
+                    </p>
+
+                </div>
+
+
+                <div class="performer-stat">
+
+                    <strong id="performerRuns">
+                        0
+                    </strong>
+
+                    <span>RUNS</span>
+
+                </div>
+
+
+                <div class="performer-stat">
+
+                    <strong id="performerAverage">
+                        0
+                    </strong>
+
+                    <span>AVERAGE</span>
+
+                </div>
+
+
+                <div class="performer-stat">
+
+                    <strong id="performerSR">
+                        0
+                    </strong>
+
+                    <span>STRIKE RATE</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PLAYER TABLE -->
+
+        <section class="players-section" id="players">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>PLAYER DATABASE</p>
+
+                    <h2>Player Performance</h2>
+                </div>
+
+
+                <div class="format-buttons">
+
+                    <button class="format active">
+                        ALL
+                    </button>
+
+                    <button class="format">
+                        ODI
+                    </button>
+
+                    <button class="format">
+                        T20I
+                    </button>
+
+                    <button class="format">
+                        TEST
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="player-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>PLAYER</th>
+
+                            <th>FORMAT</th>
+
+                            <th>MATCHES</th>
+
+                            <th>RUNS</th>
+
+                            <th>WICKETS</th>
+
+                            <th>AVERAGE</th>
+
+                            <th>STRIKE RATE</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="playerTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MATCH SECTION -->
+
+        <section class="match-section" id="matches">
+
+            <div>
+
+                <p>MATCH CENTRE</p>
+
+                <h2>India Women Cricket</h2>
+
+            </div>
+
+
+            <div class="match-status">
+
+                <span class="pulse"></span>
+
+                DATA SYSTEM ACTIVE
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div>
+
+                <strong>🏏 Women Cricket Analytics</strong>
+
+                <p>
+                    India Women's Cricket Performance Dashboard
+                </p>
+
+            </div>
+
+
+            <span>
+                Data Analysis Project • 2026
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
