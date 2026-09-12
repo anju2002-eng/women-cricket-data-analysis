@@ -1563,3 +1563,307 @@ color: transparent;
     }
 
 }
+
+/* =========================================
+   PROFESSIONAL PLAYER CARDS
+========================================= */
+
+.players-grid {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* PLAYER CARD */
+
+.player-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171b35,
+            #0d1024
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* HOVER */
+
+.player-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(120, 90, 255, 0.6);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,0.35);
+}
+
+
+/* PLAYER IMAGE AREA */
+
+.player-card-image {
+
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #343b72 0%,
+            #171b35 55%,
+            #0d1024 100%
+        );
+}
+
+
+/* INITIALS */
+
+.player-initials {
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d5dfc,
+            #9b5cff
+        );
+
+    border: 5px solid
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.35);
+}
+
+
+/* COUNTRY BADGE */
+
+.player-country {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    background:
+        rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(10px);
+
+    color: white;
+}
+
+
+/* CARD BODY */
+
+.player-card-body {
+
+    padding: 22px;
+}
+
+
+/* ROLE */
+
+.player-role {
+
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    background:
+        rgba(109,93,252,0.15);
+
+    color:
+        #b7afff;
+}
+
+
+/* PLAYER NAME */
+
+.player-card-body h3 {
+
+    margin: 14px 0 6px;
+
+    font-size: 22px;
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+/* BATTING STYLE */
+
+.player-style {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,0.6);
+
+    font-size: 14px;
+}
+
+
+/* FOOTER */
+
+.player-card-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding-top: 16px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+
+/* TEAM */
+
+.player-team {
+
+    color:
+        rgba(255,255,255,0.65);
+
+    font-size: 12px;
+}
+
+
+/* PROFILE BUTTON */
+
+.profile-btn {
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d5dfc,
+            #8b5cf6
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.profile-btn:hover {
+
+    transform: translateX(3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(109,93,252,0.35);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .players-grid {
+
+        width: 92%;
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .player-card-image {
+
+        height: 170px;
+
+    }
+
+    .player-card-body h3 {
+
+        font-size: 20px;
+
+    }
+
+}
