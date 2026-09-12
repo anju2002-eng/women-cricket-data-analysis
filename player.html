@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Player Profile | India Women Cricket</title>
+
+    <link
+        rel="stylesheet"
+        href="css/player.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- TOP NAVBAR -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🏏
+            </div>
+
+            <div>
+
+                <h1>WOMEN'S CRICKET</h1>
+
+                <span>
+                    INDIA ANALYTICS
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="players.html">
+                Players
+            </a>
+
+            <a href="#">
+                Matches
+            </a>
+
+            <a href="#">
+                Live
+            </a>
+
+            <a href="#">
+                Records
+            </a>
+
+            <a href="#">
+                News
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="profile-page">
+
+
+        <!-- BACK BUTTON -->
+
+        <a
+            href="players.html"
+            class="back-button"
+        >
+            ← Back to Players
+        </a>
+
+
+
+        <!-- PLAYER HERO -->
+
+        <section class="profile-hero">
+
+
+            <div class="profile-photo">
+
+                <div
+                    id="playerInitials"
+                    class="profile-initials"
+                >
+                    SM
+                </div>
+
+                <div class="india-badge">
+                    🇮🇳
+                </div>
+
+            </div>
+
+
+
+            <div class="profile-main-info">
+
+                <span
+                    id="playerRole"
+                    class="profile-role"
+                >
+                    PLAYER
+                </span>
+
+
+                <h2 id="playerName">
+                    Loading...
+                </h2>
+
+
+                <p id="playerTeam">
+                    India Women
+                </p>
+
+
+                <div class="profile-tags">
+
+                    <span id="battingStyle">
+                        Batting
+                    </span>
+
+                    <span>
+                        India Women
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK STATS -->
+
+            <div class="profile-quick-stats">
+
+                <div>
+
+                    <strong id="quickMatches">
+                        0
+                    </strong>
+
+                    <span>
+                        Matches
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="quickRuns">
+                        0
+                    </strong>
+
+                    <span>
+                        Runs
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="quickAverage">
+                        0
+                    </strong>
+
+                    <span>
+                        Average
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="quickStrikeRate">
+                        0
+                    </strong>
+
+                    <span>
+                        Strike Rate
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TABS -->
+
+        <section class="profile-tabs">
+
+            <button
+                class="profile-tab active"
+                data-tab="overview"
+            >
+                Overview
+            </button>
+
+
+            <button
+                class="profile-tab"
+                data-tab="stats"
+            >
+                Stats
+            </button>
+
+
+            <button
+                class="profile-tab"
+                data-tab="records"
+            >
+                Records
+            </button>
+
+
+            <button
+                class="profile-tab"
+                data-tab="matches"
+            >
+                Matches
+            </button>
+
+
+            <button
+                class="profile-tab"
+                data-tab="videos"
+            >
+                Videos
+            </button>
+
+
+            <button
+                class="profile-tab"
+                data-tab="news"
+            >
+                News
+            </button>
+
+
+            <button
+                class="profile-tab"
+                data-tab="photos"
+            >
+                Photos
+            </button>
+
+        </section>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="profile-content">
+
+
+
+            <!-- OVERVIEW -->
+
+            <div
+                id="overview"
+                class="tab-content active"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        PLAYER INFORMATION
+                    </span>
+
+                    <h3>
+                        Overview
+                    </h3>
+
+                </div>
+
+
+
+                <div class="info-grid">
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Full Name
+                        </span>
+
+                        <strong id="infoName">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Team
+                        </span>
+
+                        <strong id="infoTeam">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Role
+                        </span>
+
+                        <strong id="infoRole">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Format
+                        </span>
+
+                        <strong id="infoFormat">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Batting Style
+                        </span>
+
+                        <strong id="infoBatting">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Highest Score
+                        </span>
+
+                        <strong id="infoHighest">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="about-card">
+
+                    <span>
+                        ABOUT THE PLAYER
+                    </span>
+
+                    <h3 id="aboutTitle">
+                        Player Profile
+                    </h3>
+
+                    <p id="aboutText">
+
+                        Player information will appear
+                        here from the cricket database.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STATS -->
+
+            <div
+                id="stats"
+                class="tab-content"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        PERFORMANCE
+                    </span>
+
+                    <h3>
+                        Career Statistics
+                    </h3>
+
+                </div>
+
+
+                <div class="stats-table-wrapper">
+
+                    <table class="stats-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Format
+                                </th>
+
+                                <th>
+                                    Matches
+                                </th>
+
+                                <th>
+                                    Innings
+                                </th>
+
+                                <th>
+                                    Runs
+                                </th>
+
+                                <th>
+                                    Average
+                                </th>
+
+                                <th>
+                                    Strike Rate
+                                </th>
+
+                                <th>
+                                    50s
+                                </th>
+
+                                <th>
+                                    100s
+                                </th>
+
+                                <th>
+                                    Highest
+                                </th>
+
+                                <th>
+                                    Wickets
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td id="statFormat">
+                                    ODI
+                                </td>
+
+                                <td id="statMatches">
+                                    -
+                                </td>
+
+                                <td id="statInnings">
+                                    -
+                                </td>
+
+                                <td id="statRuns">
+                                    -
+                                </td>
+
+                                <td id="statAverage">
+                                    -
+                                </td>
+
+                                <td id="statStrike">
+                                    -
+                                </td>
+
+                                <td id="statFifties">
+                                    -
+                                </td>
+
+                                <td id="statHundreds">
+                                    -
+                                </td>
+
+                                <td id="statHighest">
+                                    -
+                                </td>
+
+                                <td id="statWickets">
+                                    -
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RECORDS -->
+
+            <div
+                id="records"
+                class="tab-content"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        ACHIEVEMENTS
+                    </span>
+
+                    <h3>
+                        Records & Milestones
+                    </h3>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+
+                        <div>
+                            🏆
+                        </div>
+
+                        <h3>
+                            Career Records
+                        </h3>
+
+                        <p>
+                            Player records and major
+                            achievements will appear here.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div>
+                            ⭐
+                        </div>
+
+                        <h3>
+                            Milestones
+                        </h3>
+
+                        <p>
+                            Important career milestones
+                            will be displayed here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MATCHES -->
+
+            <div
+                id="matches"
+                class="tab-content"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        PERFORMANCE HISTORY
+                    </span>
+
+                    <h3>
+                        Matches
+                    </h3>
+
+                </div>
+
+
+                <div class="empty-section">
+
+                    <div>
+                        🏏
+                    </div>
+
+                    <h3>
+                        Match History
+                    </h3>
+
+                    <p>
+                        Match-by-match player performance
+                        will be connected in the next data
+                        integration step.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VIDEOS -->
+
+            <div
+                id="videos"
+                class="tab-content"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        MEDIA
+                    </span>
+
+                    <h3>
+                        Videos
+                    </h3>
+
+                </div>
+
+
+                <div class="media-placeholder">
+
+                    <div>
+                        ▶️
+                    </div>
+
+                    <h3>
+                        Player Videos
+                    </h3>
+
+                    <p>
+                        Official player videos and highlights
+                        will be connected here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NEWS -->
+
+            <div
+                id="news"
+                class="tab-content"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        LATEST UPDATES
+                    </span>
+
+                    <h3>
+                        News
+                    </h3>
+
+                </div>
+
+
+                <div class="media-placeholder">
+
+                    <div>
+                        📰
+                    </div>
+
+                    <h3>
+                        Player News
+                    </h3>
+
+                    <p>
+                        Latest player-specific news will
+                        appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTOS -->
+
+            <div
+                id="photos"
+                class="tab-content"
+            >
+
+                <div class="content-heading">
+
+                    <span>
+                        GALLERY
+                    </span>
+
+                    <h3>
+                        Photos
+                    </h3>
+
+                </div>
+
+
+                <div class="photo-placeholder">
+
+                    <div>
+                        📸
+                    </div>
+
+                    <h3>
+                        Photo Gallery
+                    </h3>
+
+                    <p>
+                        Player match and training photos
+                        will be connected here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <script src="player.js"></script>
+
+</body>
+
+</html>
