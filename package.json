@@ -1,27 +1,27 @@
 {
-  "name": "data",
+  "name": "women-cricket-data-analysis",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Women Cricket Data Analysis Dashboard",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anju2002-eng/women-cricket-data-analysis.git"
-  },
-  "keywords": [],
+  "keywords": [
+    "cricket",
+    "women-cricket",
+    "india-women",
+    "data-analysis"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/anju2002-eng/women-cricket-data-analysis/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anju2002-eng/data.git"
   },
-  "homepage": "https://github.com/anju2002-eng/women-cricket-data-analysis#readme",
   "dependencies": {
-    "axios": "^1.20.0",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0"
   }
 }
