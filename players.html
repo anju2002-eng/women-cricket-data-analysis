@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>India Women Cricket | Players</title>
+
+    <link rel="stylesheet" href="css/player.css">
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-logo">🏏</div>
+
+            <div>
+                <h1>WOMEN'S CRICKET</h1>
+                <span>INDIA ANALYTICS</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="players.html" class="active">Players</a>
+            <a href="#">Matches</a>
+            <a href="#">Live</a>
+            <a href="#">Records</a>
+            <a href="#">News</a>
+        </nav>
+
+    </header>
+
+
+    <!-- PAGE -->
+    <main class="players-page">
+
+        <!-- HERO -->
+        <section class="players-hero">
+
+            <div>
+                <span class="hero-label">🇮🇳 INDIA WOMEN</span>
+
+                <h2>
+                    Meet the <span>Stars</span>
+                </h2>
+
+                <p>
+                    Explore player profiles, career statistics,
+                    records, matches and performance insights.
+                </p>
+            </div>
+
+            <div class="hero-ball">
+                🏏
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH + FILTER -->
+        <section class="player-tools">
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="searchPlayer"
+                    placeholder="Search player..."
+                >
+
+            </div>
+
+
+            <select id="roleFilter">
+
+                <option value="all">All Players</option>
+
+                <option value="Opening Batter">
+                    Opening Batters
+                </option>
+
+                <option value="Middle Order Batter">
+                    Batters
+                </option>
+
+                <option value="All Rounder">
+                    All Rounders
+                </option>
+
+                <option value="Bowler">
+                    Bowlers
+                </option>
+
+                <option value="Wicketkeeper Batter">
+                    Wicketkeepers
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- PLAYER COUNT -->
+
+        <div class="section-heading">
+
+            <div>
+                <span>INDIA WOMEN</span>
+                <h3>Player Directory</h3>
+            </div>
+
+            <div class="player-count">
+                <strong id="playerCount">0</strong>
+                <span>Players</span>
+            </div>
+
+        </div>
+
+
+        <!-- PLAYER CARDS -->
+
+        <section
+            class="players-grid"
+            id="playersGrid">
+        </section>
+
+
+        <!-- NO RESULT -->
+
+        <div
+            class="no-result"
+            id="noResult">
+
+            <div>🏏</div>
+
+            <h3>No player found</h3>
+
+            <p>
+                Try another player name or role.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
